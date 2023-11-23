@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Board Detail</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    table {
+      width: 60%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+    }
+
+    th, td {
+      padding: 8px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #4caf50;
+      color: #fff;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    button {
+      padding: 8px 16px;
+      margin: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+    }
+
+    button:nth-child(1) {
+      background-color: #008CBA; /* Blue */
+    }
+
+    button:nth-child(2) {
+      background-color: #4caf50; /* Green */
+    }
+
+    button:nth-child(3) {
+      background-color: #e41c1c; /* Red */
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+</head>
+<body>
+<table>
+  <tr>
+    <th>id</th>
+    <td th:text="${board.id}"></td>
+  </tr>
+  <tr>
+    <th>title</th>
+    <td th:text="${board.boardTitle}"></td>
+  </tr>
+  <tr>
+    <th>writer</th>
+    <td th:text="${board.boardWriter}"></td>
+  </tr>
+  <tr>
+    <th>contents</th>
+    <td th:text="${board.boardContents}"></td>
+  </tr>
+</table>
+<button onclick="listReq()">목록</button>
+<button onclick="updateReq()">수정</button>
+<button onclick="deleteReq()">삭제</button>
+</body>
+<script th:inline="javascript">
+  const listReq = () => {
+    console.log("목록 요청");
+    location.href = "/board/";
+  }
+  const updateReq = () => {
+    console.log("수정 요청");
+    const id = [[${board.id}]];
+    location.href = "/board/update/" + id;
+  }
+  const deleteReq = () => {
+    console.log("삭제 요청");
+    const id = [[${board.id}]];
+    location.href = "/board/delete/" + id;
+  }
+</script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+        }
+
+        button:nth-child(1) {
+            background-color: #4caf50; /* Green */
+        }
+
+        button:nth-child(2) {
+            background-color: #008CBA; /* Blue */
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+<button onclick="saveReq()">글작성</button>
+<button onclick="listReq()">글목록</button>
+</body>
+<script>
+    const saveReq = () => {
+        location.href = "/board/save";
+    }
+
+    const listReq = () => {
+        location.href = "/board/";
+    }
+</script>
+</html>
